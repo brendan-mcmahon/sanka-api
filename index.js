@@ -6,6 +6,7 @@ let io = require("socket.io")(http, {
     }
 });
 
+const port = process.env.PORT || 3000;
 const rooms = [];
 
 function getRoom(req) {
@@ -143,8 +144,8 @@ io.on('connection', (socket) => {
       
   });
 
-http.listen(3000, () => {
-  console.log('listening on *:3000');
+http.listen(port, () => {
+  console.log(`listening on *:${port}`);
 });
 
 
